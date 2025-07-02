@@ -2,23 +2,24 @@ using UnityEngine;
 using System;
 
 public class ImanBall : MonoBehaviour
-{    
-    #region Properties
+{
+	#region Properties
 	#endregion
 
 	#region Fields
+	[SerializeField]
+	private Rigidbody imanRb;
+	[SerializeField]
+	private float speedMove = 10;
 	#endregion
 
 	#region Unity Callbacks
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    
     void Update()
     {
+		transform.Translate(Vector3.forward * Input.GetAxis("Horizontal") * Time.deltaTime * speedMove);
+		transform.Translate(Vector3.left * Input.GetAxis("Vertical") * Time.deltaTime * speedMove);
         
     }
 	#endregion
